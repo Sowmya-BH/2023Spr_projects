@@ -162,13 +162,9 @@ def calculate_degree(largest_subgraph: nx.DiGraph, panama : nx.DiGraph, page_ran
     """
     Calculate degree for nodes in largest subgraph
     :param largest_subgraph: Graph object
+    :param panama: Graph object
+    :page_rank : boolean
     :return: Pandas dataframe with degree for each node
-
-    >>> G = nx.DiGraph()
-    DataFrame
-    >>>
-
-    >>>
 
     """
     if page_rank==True:
@@ -176,10 +172,9 @@ def calculate_degree(largest_subgraph: nx.DiGraph, panama : nx.DiGraph, page_ran
         pr = dict(nx.pagerank(largest_subgraph))
         node_attrs = compute_node_attributes(pr, largest_subgraph, panama)
 
-        #pr_degree_df = pd.DataFrame(data={"node_type": node_types, "degree": degrees, "name": names}, index=pr.keys())
         # Create dataframe with node types, degrees, and names
         pr_degree_df = pd.DataFrame.from_dict({"name": node_attrs[n]['name'], "node_type": node_attrs[n]['node_type'], "degree": pr[n]} for n in pr.keys() if n in node_attrs.keys())
-        pr_degree_df.index = pr.keys()
+        pr_degree_df = pr_degree_df.set_index(pr.keys())
 
         return pr_degree_df
 
@@ -194,16 +189,6 @@ def calculate_degree(largest_subgraph: nx.DiGraph, panama : nx.DiGraph, page_ran
         node_degree_df = pd.DataFrame(data={"node_type": types, "degree": degrees, "name": names},index=largest_subgraph.nodes())
 
         return node_degree_df
-        # Calculate percentage of missing data
-        # na_perc = (node_degree_df.isna().sum()) / (node_degree_df.shape[0]) * 100
-
-        # Group nodes by node type and calculate count, mean, and median degree
-        #node_degree_grouped = node_degree_df.groupby("node_type").agg(["count", "mean", "median"])
-
-        # Merge degree dataframes
-        #node_degree_df = pd.concat([node_degree_df, pr_degree_df], sort=False)
-
-
 
 def compute_node_attributes(sorted_dict:dict,largest_subgraph:nx.DiGraph, panama:nx.DiGraph)->dict:
     """
@@ -213,6 +198,18 @@ def compute_node_attributes(sorted_dict:dict,largest_subgraph:nx.DiGraph, panama
     :param largest_subgraph: the largest connected component of the Panama Papers graph
     :param panama: the Panama Papers graph
     :return: a dictionary containing the node attributes of nodes in the largest connected component
+    >>> G = nx.DiGraph()
+    >>> G.add_node(1, name='node1', node_type='entity')
+    >>> G.add_node(2, name='node2', node_type='officer')
+    >>> G.add_edges_from([(1, 2), (2, 1)])
+    >>> largest_subgraph = max(nx.weakly_connected_components(G), key=len)
+    >>> largest_subgraph = G.subgraph(largest_subgraph)
+    >>> pagerank = nx.pagerank(largest_subgraph)
+    >>> node_attributes = compute_node_attributes(pagerank, largest_subgraph, G)
+    >>> assert isinstance(node_attributes, dict)
+    >>> assert set(node_attributes.keys()) == {1, 2}
+    >>> assert node_attributes[1] == {'name': 'node1', 'node_type': 'entity'}
+    >>> assert node_attributes[2] == {'name': 'node2', 'node_type': 'officer'}
     """
     node_attributes = dict()
     for node in sorted_dict.keys():
@@ -224,63 +221,3 @@ def compute_node_attributes(sorted_dict:dict,largest_subgraph:nx.DiGraph, panama
 
 if __name__ == '__main__':
     pass
-    # panama = create_graph(node_file=[('Entities.csv', 'entities'), ('Intermediaries.csv', 'intermediaries'), ('Officers.csv', 'officers'), ('address.csv','address')],
-    #     edge_file='Edges.csv')
-    # pandas_df = create_dataframe(node_file=[('Entities.csv', 'entities'), ('Intermediaries.csv', 'intermediaries'), ('Officers.csv', 'officers'), ('address.csv','address')],
-    #     edge_file='Edges.csv')
-    # #print(panama.edges())
-    # print(nx.number_of_nodes(panama), nx.number_of_edges(panama))
-    # #print(panama.nodes.data('details')['name'] )
-    # # undirected_graph = panama.to_undirected()
-    # # components = [nx.subgraph(undirected_graph, p) for p in nx.connected_components(undirected_graph) if len(p) >= 20 or undirected_graph.subgraph(p).size() >= 20]
-    # # components = sorted(components, key=lambda x: x.number_of_nodes(), reverse=True)
-    # components = calculate_components(panama, min_size=20)
-    # # print(len(components))
-    #
-    # # #sorted(components, key=lambda x: x.number_of_nodes(), reverse=True)
-    # # components_nodes = [s.number_of_nodes() for s in sorted(components, key=lambda x: x.number_of_nodes(), reverse=True)]
-    # # print(components_nodes)
-    # #largest_subgraph_list = [i for i in range(len(components_nodes)) if components_nodes[i]>1000]
-    # #print(largest_subgraph_list)
-    #
-    #
-    # pr = nx.pagerank(components[0])
-    # pr = dict(nx.pagerank(components[0]))
-    # #print(pr)
-    # sorted_dict = {k: v for k, v in sorted(pr.items(), key=lambda item: item[1], reverse=True)}
-    # # print(sorted_dict)
-    # # # for node,data in
-    # node_attrs = compute_node_attributes(sorted_dict,components[0],panama)
-    # degrees = [pr[node] for node in pr.keys() if node in node_attrs.keys()]
-    # # print(degree)
-    # node_types = [node_attrs[node]['node_type'] for node in pr.keys() if node in node_attrs.keys()]
-    # # print(node_type)
-    # names = [node_attrs[node]['name'] for node in pr.keys() if node in node_attrs.keys()]
-    # # print(name)
-    # pr_degree_df = pd.DataFrame(data={"node_type":node_types, "degree":degrees, "name": names}, index=pr.keys())
-    # print(pr_degree_df)
-    #
-    # # print(node_attrs)
-    # #sorted_nodes = sorted([(node, pagerank) for node, pagerank in pr.items()], key=lambda x: pr[x[0]])
-    # #print(sorted_nodes[-1])
-    # #users = api.lookup_users(user_ids=[pair[0] for pair in sorted_nodes[:10]])
-    #
-    # # for node, data in panama.nodes(data=True):
-    # # # print the attributes of the node
-    # #     print(f"Node: {node}")
-    # #     for key, value in data.items():
-    # #         print(f"{key}: {value}")
-    # #     print("\n")
-    #
-    # # undirected_panama = panama.to_undirected()
-    # #
-    # # components = [nx.subgraph(undirected_panama, p) for p in nx.connected_components(undirected_panama) if len(p) >= 20 or undirected_panama.subgraph(p).size() >= 20]
-    # #
-    # # components = sorted(components, key=lambda x: x.number_of_nodes(), reverse=True)
-    # # #print(len(components))
-    # # #graph_object = [components[s.number_of_nodes()] for s in components if s.number_of_nodes()>1000]
-    # # print([s.number_of_nodes() for s in components[:50]])
-    #
-    # #for i in range(len(graph_object)):
-    #
-    # #plot_graph(graph_object[0])
