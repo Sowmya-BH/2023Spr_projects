@@ -1,5 +1,5 @@
 # Exploring the Business Value of Advanced Analytics on Anti-Money Laundering  Investigations:
-Graphs capture relationships and connections between data entities. Those relationships and connections can be used in data analysis. Much of data is connected, and graphs are becoming increasingly important because they make it easier to explore those connections and draw new conclusions.
+Graphs capture relationships and connections between data entities that can be used in data analysis. Much of data is connected, and graphs are becoming increasingly important because they make it easier to explore those connections and draw new conclusions.
 
 When it comes to analyzing graphs, algorithms explore the paths and distance between the vertices, the importance of the vertices, and clustering of the vertices. The algorithms will often look at incoming edges, importance of neighboring vertices, and other indicators to help determine importance.
 Because graph databases explicitly store the relationships, queries and algorithms utilizing the connectivity between vertices can be run in sub- seconds rather than hours or days. Users don’t need to execute countless join and the data can more easily be used for analysis and machine learning 
