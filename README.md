@@ -18,7 +18,7 @@ When it comes to analyzing graphs, algorithms explore the paths and distance bet
 ## The Problem:
 Financial crimes are more about how criminals are linked by relationships - whether it's relationship to other criminals, locations or ofcourse, bank accounts.Conceptually money laudering is simple. Dirty money is passed around to blend it with legitimate funds and then turned into hard assets. This is kind of analysis used in Panama Paper Analysis. 
 
-Challenges:
+#### Challenges:
 1. The size of the data files is too huge and so I have zip them to upload to GitHub
 2. Given the herculian task of plotting 559600 nodes and 6574881 edges, I have to Use multiprocessing for a few functions to run tasks in parallel to make the code run faster.
 
