@@ -1,6 +1,7 @@
 # Exploring the Business Value of Advanced Analytics on Anti-Money Laundering  Investigations:
 Financial crimes are more about how criminals are linked by relationships - whether it's relationship to other criminals, locations or ofcourse, bank accounts.Conceptually money laudering is simple. Dirty money is passed around to blend it with legitimate funds and then turned into hard assets. This is kind of analysis used in Panama Paper Analysis which I used to demonstrate my hypothesis.
-![image](https://github.com/Sowmya-BH/2023Spr_projects/assets/60283108/7d10406d-692d-4d77-941e-205dae3230d7)
+<img src="[https://user-images.githubusercontent.com/16319829/81180309-2b51f000-8fee-11ea-8a78-ddfe8c3412a7](https://github.com/Sowmya-BH/2023Spr_projects/assets/60283108/7d10406d-692d-4d77-941e-205dae3230d7).png" width=50% height=50%>
+#![image](https://github.com/Sowmya-BH/2023Spr_projects/assets/60283108/7d10406d-692d-4d77-941e-205dae3230d7)
 
 
 ## Data:
