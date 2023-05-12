@@ -28,8 +28,12 @@ Finally, given additional time I would have reduced the respective nodes to resp
 https://www.oracle.com/a/ocom/docs/graph-database-use-cases-ebook.pdf
 https://networkx.org/documentation/stable/reference/generated/networkx.generators.ego.ego_graph.html
 https://networkx.org/documentation/stable/tutorial.html
+
 Complex Network Analysis in Python by Dmitry Zenoviev - book
+
 GeeksforGeeks
+
 StackOverflow
+
 ChatGPT
 
