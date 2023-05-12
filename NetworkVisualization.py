@@ -21,11 +21,8 @@ import ipywidgets
 import random
 import itertools
 
-#from typing import List
-
 from networkx.drawing.nx_agraph import graphviz_layout
 import pickle
-#import dzcnapy_plotlib as dzcnapy
 import csv
 
 
@@ -57,18 +54,13 @@ def create_graph(node_file, edge_file)->nx.DiGraph:
     """
     for file, node_type in node_file:
         df = pd.read_csv(file,low_memory=False)
-    edges = pd.read_csv(edge_file, low_memory=False)
+
+    G = nx.DiGraph()
 
     # read node files and create nodes with node_type attribute
-    G = nx.DiGraph()
-    nodes = {}
-    node_data = tuple()
     for file, node_type in node_file:
         df = pd.read_csv(file,low_memory=False)
         for row in df.itertuples(index=False):
-            #node_data = {"node_type": node_type, "details": row._asdict()}
-            # print(node_data)
-            #nodes[row.node_id] = node_data
             G.add_node(row.node_id,node_type=node_type,name=row.name)
 
     # read edge file and add edges to graph
@@ -149,10 +141,12 @@ def calculate_components(graph: nx.Graph, min_size: int) -> nx.Graph:
     >>> components[0].nodes()
     NodeView((6, 7, 8, 9))
     """
+    # Convert the input graph to an undirected graph
     undirected_graph = graph.to_undirected()
+    # Find all connected components in the undirected graph that have at least min_size nodes or edges
     components = [nx.subgraph(undirected_graph, p) for p in nx.connected_components(undirected_graph) if
                   len(p) >= min_size or undirected_graph.subgraph(p).size() >= min_size]
-    #print(len(components))
+    # Sort the connected components in descending order of size (number of nodes)
     return sorted(components, key=lambda x: x.number_of_nodes(), reverse=True)
 
 
@@ -211,10 +205,17 @@ def compute_node_attributes(sorted_dict:dict,largest_subgraph:nx.DiGraph, panama
     >>> assert node_attributes[1] == {'name': 'node1', 'node_type': 'entity'}
     >>> assert node_attributes[2] == {'name': 'node2', 'node_type': 'officer'}
     """
+    # Create an empty dictionary to store the node attributes
     node_attributes = dict()
+    # Loop through each node in the sorted dictionary
     for node in sorted_dict.keys():
+        # Check if the node is in the largest connected component
         if node in largest_subgraph:
+
+            # If the node is in the largest connected component, add its attributes to the node attributes dictionary
             node_attributes[node] = panama.nodes[node]
+
+    # Return the dictionary containing the node attributes
     return node_attributes
 
 
