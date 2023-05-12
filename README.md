@@ -4,8 +4,8 @@ Financial crimes are more about how criminals are linked by relationships - whet
 
 
 ## Data:
-The original data is available under creative common license and can be downloaded from https://offshoreleaks.icij.org/pages/database.
-Here I used only a sample of the data which I uploaded as zip files in CSV format.
+* The original data is available under creative common license and can be downloaded from https://offshoreleaks.icij.org/pages/database.
+* Here I used only a sample of the data which I uploaded as zip files in CSV format.
 
 ## Hypothesis 1 : Advanced analytics like graph can improve the accuracy and efficiency of Anti-Money Laundering investigations of financial crimes:
 Graphs capture relationships and connections between data entities that can be used in data analysis - whether it's relationship to other criminals, locations or ofcourse, bank accounts. Much of data is connected, and graphs are becoming increasingly important because they make it easier to explore those connections and draw new conclusions. Because graph databases explicitly store the relationships, queries and algorithms utilizing the connectivity between vertices can be run in sub- seconds rather than hours or days. Users don’t need to execute countless join and the data can more easily be used for analysis and machine learning which makes it more efficient than traditional data analytics
