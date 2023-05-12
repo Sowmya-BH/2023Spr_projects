@@ -5,15 +5,7 @@ When it comes to analyzing graphs, algorithms explore the paths and distance bet
 Because graph databases explicitly store the relationships, queries and algorithms utilizing the connectivity between vertices can be run in sub- seconds rather than hours or days. Users don’t need to execute countless join and the data can more easily be used for analysis and machine learning 
 
 ## The Problem:
-Financial crimes are more about how criminals are linked by relationships - whether it's relationship to other criminals, locations or ofcourse, bank accounts.Conceptually money laudering is simple. Dirty money is passed around to blend it with legitimate funds and then turned into hard assets. This is kind of analysis used in Panama Paper Analysis.
-
- For example, detection rules can be set up for:
- 
-• IPs which log in with multiple cards registered in different places
-
-• Cards used in different places with very far distances
-
-• Accounts receiving one-time inbound transactions from other accounts registered in various places
+Financial crimes are more about how criminals are linked by relationships - whether it's relationship to other criminals, locations or ofcourse, bank accounts.Conceptually money laudering is simple. Dirty money is passed around to blend it with legitimate funds and then turned into hard assets. This is kind of analysis used in Panama Paper Analysis. However, In real-time fraud detection,for example, users can create a graph from transactions between entities as well as entities that share some information, including email addresses, passwords, addresses and more which makes it easier to reveal accounts with similar information and also to track which accounts are sending money to each other.
 
 
 ## References:
