@@ -1,4 +1,5 @@
 # Exploring the Business Value of Advanced Analytics on Anti-Money Laundering  Investigations:
+## The Problem:
 Financial crimes are more about how criminals are linked by relationships - whether it's relationship to other criminals, locations or ofcourse, bank accounts.Conceptually money laudering is simple. Dirty money is passed around to blend it with legitimate funds and then turned into hard assets. This is kind of analysis used in Panama Paper Analysis which I used to demonstrate my hypothesis.
 
 
@@ -14,9 +15,6 @@ This is kind of analysis is used in Panama Paper Analysis by the The Internation
 ## Hypothesis 2 :The use of advanced analytics can provide a more comprehensive view of suspicious financial activities and uncover previously unknown patterns and relationships.
 When it comes to analyzing graphs, algorithms explore the paths and distance between the vertices, the importance of the vertices, and connectedness of the vertices. The algorithms will often look at incoming edges, importance of neighboring vertices, and other indicators to help determine importance. However, In real-time fraud detection,for example, users can create a graph from transactions between entities as well as entities that share some information, including email addresses, passwords, addresses and more which makes it easier to reveal accounts with similar information and also to track which accounts are sending money to each other.Given the herculian task of anlysing 559600 nodes and 6574881 edges and extracting structures from data, it would have taken days together to even understand how these nodes are realted to each other using traditional dataframe analysis.
 
-
-## The Problem:
-Financial crimes are more about how criminals are linked by relationships - whether it's relationship to other criminals, locations or ofcourse, bank accounts.Conceptually money laudering is simple. Dirty money is passed around to blend it with legitimate funds and then turned into hard assets. This is kind of analysis used in Panama Paper Analysis. 
 
 #### Challenges:
 1. The size of the data files is too huge and so I have zip them to upload to GitHub
