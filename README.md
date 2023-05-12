@@ -1,6 +1,6 @@
 # Exploring the Business Value of Advanced Analytics on Anti-Money Laundering  Investigations:
 ## The Problem:
-Financial crimes are more about how criminals are linked by relationships - whether it's relationship to other criminals, locations or ofcourse, bank accounts.Conceptually money laudering is simple. Dirty money is passed around to blend it with legitimate funds and then turned into hard assets. This is kind of analysis used in Panama Paper Analysis which I used to demonstrate my hypothesis.
+Financial crimes are more about how criminals are linked by relationships - whether it's relationship to other criminals, locations or ofcourse, bank accounts.Conceptually money laudering is simple. Dirty money is passed around to blend it with legitimate funds and then turned into hard assets. This is the kind of analysis used in Panama Paper Analysis which I used to demonstrate my hypothesis.
 
 
 ## Data:
@@ -13,12 +13,12 @@ This is kind of analysis is used in Panama Paper Analysis by the The Internation
 
 
 ## Hypothesis 2 :The use of advanced analytics can provide a more comprehensive view of suspicious financial activities and uncover previously unknown patterns and relationships.
-When it comes to analyzing graphs, algorithms explore the paths and distance between the vertices, the importance of the vertices, and connectedness of the vertices. The algorithms will often look at incoming edges, importance of neighboring vertices, and other indicators to help determine importance. However, In real-time fraud detection,for example, users can create a graph from transactions between entities as well as entities that share some information, including email addresses, passwords, addresses and more which makes it easier to reveal accounts with similar information and also to track which accounts are sending money to each other.Given the herculian task of analysing 559600 nodes and 6574881 edges and extracting structures from data, it would have taken days together to even understand how these nodes are realted to each other using traditional dataframe analysis.
+When it comes to analyzing graphs, algorithms explore the paths and distance between the vertices, the importance of the vertices, and connectedness of the vertices. The algorithms will often look at incoming edges, importance of neighboring vertices, and other indicators to help determine importance. However, In real-time fraud detection,for example, users can create a graph from transactions between entities as well as entities that share some information, including email addresses, passwords, addresses and more which makes it easier to reveal accounts with similar information and also to track which accounts are sending money to each other.Given the herculian task of analysing 559600 nodes and 6574881 edges and extracting structures from data, it would have taken days together to even understand how these nodes are related to each other using traditional dataframe analysis.
 
 
 #### Challenges:
-1. The size of the data files is too huge and so I have zip them to upload to GitHub
-2. Given the herculian task of plotting 559600 nodes and 6574881 edges, I have to Use multiprocessing for a few functions to run tasks in parallel to make the code run faster.
+1. The size of the data files is too huge and so I have to zip them to upload to GitHub
+2. Given the herculian task of plotting 559600 nodes and 6574881 edges, I have to Use multiprocessing to parallelize the computation for a few functions to run tasks in parallel to make the code run faster.
 
 Finally, given additional time I would have reduced the respective nodes to respective unique instance of countries and see how would this work!! (both nodes and edges would require processing).
 
