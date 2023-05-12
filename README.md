@@ -8,8 +8,11 @@ Because graph databases explicitly store the relationships, queries and algorith
 Financial crimes are more about how criminals are linked by relationships - whether it's relationship to other criminals, locations or ofcourse, bank accounts.Conceptually money laudering is simple. Dirty money is passed around to blend it with legitimate funds and then turned into hard assets. This is kind of analysis used in Panama Paper Analysis.
 
  For example, detection rules can be set up for:
+ 
 • IPs which log in with multiple cards registered in different places
+
 • Cards used in different places with very far distances
+
 • Accounts receiving one-time inbound transactions from other accounts registered in various places
 
 
