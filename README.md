@@ -44,10 +44,8 @@ Query: Graph Visualization:
 * Prompt : node_labels  returns nan
 * Response : If the node_labels dictionary returns nan for some nodes, it's possible that the corresponding rows in the DataFrame don't have a value for the "name" column. You can check this by adding a print statement inside the loop that prints the row variable:
 
-scss
-Copy code
 for _, row in df.iterrows():
-    print(row)
-    G.add_node(row['node_id'], node_type=node_type, **row.to_dict())
+* print(row)
+* G.add_node(row['node_id'], node_type=node_type, **row.to_dict())
 
 
