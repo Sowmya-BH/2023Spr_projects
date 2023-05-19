@@ -48,4 +48,13 @@ for _, row in df.iterrows():
 * print(row)
 * G.add_node(row['node_id'], node_type=node_type, **row.to_dict())
 
+Query : 
+* Prompt : largest_subgraph = max(nx.connected_components(G), key=len)
+            NetworkXNotImplemented: not implemented for directed type
+* Response : nx.degree_centrality() is not implemented for directed graphs in NetworkX, so you cannot use it directly on a directed graph like nx.DiGraph(). One option is to convert the directed graph into an undirected graph using nx.Graph(), and then compute the degree centrality:
+
+undirected_graph = G.to_undirected()  # Convert directed graph to undirected graph
+degree_centrality = nx.degree_centrality(undirected_graph)  # Compute degree centrality
+
+
 
