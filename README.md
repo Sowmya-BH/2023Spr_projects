@@ -39,8 +39,8 @@ Finally, given additional time I would have reduced the respective nodes to resp
 * https://medium.com/@oliviercruchant/python-networkx-graph-magic-260309cce484
 * Complex Network Analysis in Python by Dmitry Zenoviev - book
 * ChatGPT for error handling:
-
-Query: Graph Visualization:
+ChatGPT Interaction Details:
+Query 1: Graph Visualization:
 * Prompt : node_labels  returns nan
 * Response : If the node_labels dictionary returns nan for some nodes, it's possible that the corresponding rows in the DataFrame don't have a value for the "name" column. You can check this by adding a print statement inside the loop that prints the row variable:
 
@@ -48,13 +48,14 @@ for _, row in df.iterrows():
 * print(row)
 * G.add_node(row['node_id'], node_type=node_type, **row.to_dict())
 
-Query : 
-* Prompt : largest_subgraph = max(nx.connected_components(G), key=len)
-            NetworkXNotImplemented: not implemented for directed type
-* Response : nx.degree_centrality() is not implemented for directed graphs in NetworkX, so you cannot use it directly on a directed graph like nx.DiGraph(). One option is to convert the directed graph into an undirected graph using nx.Graph(), and then compute the degree centrality:
+Query 2: 
+* Prompt : pr = nx.pagerank(largest_subgraph)
+  AttributeError: module 'scipy.sparse' has no attribute 'coo_array'
+  
+* Response :  This error may occur if there is a version mismatch between scipy and numpy. You can try upgrading both packages to their latest versions               using pip:
+            pip install --upgrade scipy numpy
 
-undirected_graph = G.to_undirected()  # Convert directed graph to undirected graph
-degree_centrality = nx.degree_centrality(undirected_graph)  # Compute degree centrality
+
 
 
 
