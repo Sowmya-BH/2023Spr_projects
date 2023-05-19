@@ -39,6 +39,7 @@ Finally, given additional time I would have reduced the respective nodes to resp
 * https://medium.com/@oliviercruchant/python-networkx-graph-magic-260309cce484
 * Complex Network Analysis in Python by Dmitry Zenoviev - book
 * ChatGPT for error handling:
+
 Query: Graph Visualization:
 * Prompt : node_labels  returns nan
 * Response : If the node_labels dictionary returns nan for some nodes, it's possible that the corresponding rows in the DataFrame don't have a value for the "name" column. You can check this by adding a print statement inside the loop that prints the row variable:
