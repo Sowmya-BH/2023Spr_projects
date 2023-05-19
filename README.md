@@ -58,6 +58,26 @@ Query 2:
   
 * Response :  This error may occur if there is a version mismatch between scipy and numpy. You can try upgrading both packages to their latest versions               using pip:
             pip install --upgrade scipy numpy
+            
+            
+  Query 3:
+  * Prompt: >>>  grph = create_graph(node_file=[('Entities.csv', 'entities')],edge_file='Edges.csv')
+            >>>  len(grph.edges) <= len(edge_file)
+            True
+error in doctests
+
+File "/Applications/PyCharm.app/Contents/plugins/python/helpers/pycharm/docrunner.py", line 138, in __run
+        exec(compile(example.source, filename, "single",
+      File "<doctest create_graph[4]>", line 1, in <module>
+        len(grph.edges) <= len(edge_file)
+    NameError: name 'edge_file' is not defined
+                                        
+ * Response : 
+   It seems like the edge_file variable is not defined within the scope of the doctest. You could try defining it before running the doctest, like so:
+  >>> edge_file = 'Edges.csv'
+  >>> grph = create_graph(node_file=[('Entities.csv', 'entities')], edge_file=edge_file)
+  >>> len(grph.edges) <= len(edge_file)
+  True
 
 
 
